@@ -74,7 +74,6 @@ public class EcoEnchantsPlugin extends LibReforgePlugin {
      * Internal constructor called by bukkit on plugin load.
      */
     public EcoEnchantsPlugin() {
-        super(490, 7666, "&a", "com.willfp.ecoenchants.proxy");
         instance = this;
 
         rarityYml = new RarityYml(this);
@@ -89,7 +88,7 @@ public class EcoEnchantsPlugin extends LibReforgePlugin {
     public void handleEnableAdditional() {
         this.getLogger().info(EcoEnchants.values().size() + " Enchantments Loaded");
 
-        TelekinesisUtils.registerTest(player -> FastItemStack.wrap(player.getInventory().getItemInMainHand()).getLevelOnItem(EcoEnchants.TELEKINESIS, false) > 0);
+        TelekinesisUtils.registerTest(player -> FastItemStack.wrap(player.getInventory().getItemInMainHand()).getEnchantmentLevel(EcoEnchants.TELEKINESIS, false) > 0);
     }
 
     @Override
@@ -177,7 +176,7 @@ public class EcoEnchantsPlugin extends LibReforgePlugin {
 
     @Override
     public String getMinimumEcoVersion() {
-        return "6.19.0";
+        return "6.35.1";
     }
 
     /**

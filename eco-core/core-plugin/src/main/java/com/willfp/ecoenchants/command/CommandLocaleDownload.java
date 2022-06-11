@@ -47,12 +47,10 @@ public class CommandLocaleDownload extends Subcommand {
 
         try {
             this.getPlugin().getLangYml().save();
-            this.getPlugin().getLangYml().clearCache();
 
             for (EcoEnchant value : EcoEnchants.values()) {
                 value.getConfig().loadFromLang();
                 value.getConfig().save();
-                value.getConfig().clearCache();
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -43,7 +43,7 @@ public class Prosperity extends EcoEnchant {
 
         if (player.getHealth() >= inst.getValue() && player.getHealth() >= 20) {
             this.getPlugin().getScheduler().runLater(() -> {
-                player.setHealth(player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue());
+                player.setHealth(Math.min(player.getHealth(), player.getAttribute(Attribute.GENERIC_MAX_HEALTH).getValue()));
             }, 1);
         }
 
